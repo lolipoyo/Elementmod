@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +19,8 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
     //0を宣言
     private int count = 0;
 
+    private NonNullList<ItemStack> items = NonNullList.withSize(10, ItemStack.EMPTY);
+
     public MachineBlockEntity(BlockPos pos, BlockState state) {
         super(ElementBlockEntityTypes.DISASSEMBLE_MACHINE_BLOCK.get(),pos,state);
     }
@@ -27,6 +30,8 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
         super.saveAdditional(tag, registries);
         //数字カウント
         tag.putInt("t-count", count);
+
+        ContainerHelper.saveAllItems(tag, this.items, registries);
     }
 
     @Override
@@ -34,6 +39,8 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
         super.loadAdditional(tag, registries);
         //数字カウント
         this.count = tag.getInt("t-count");
+
+        ContainerHelper.loadAllItems(tag, this.items, registries);
     }
 
     //数字カウント
@@ -48,17 +55,17 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
     //MachineBlock用
     @Override
     protected NonNullList<ItemStack> getItems() {
-        return null;
+        return this.items;
     }
 
     @Override
     protected void setItems(NonNullList<ItemStack> list) {
-
+        this.items = list;
     }
 
     @Override
     public int getContainerSize() {
-        return 0;
+        return this.items.size();
     }
 
     @Override
