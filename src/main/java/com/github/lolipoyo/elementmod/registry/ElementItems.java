@@ -12,5 +12,6 @@ public class ElementItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ElementMod.MOD_ID);
 
     //アイテムを登録
-    public static final RegistryObject<Item> HYDROGEN = ITEMS.register("hydrogen", ItemElement::new);
+    public static final RegistryObject<Item> HYDROGEN_ELEMENT = ITEMS.register("hydrogen_element", ItemElement::new);
+    public static final RegistryObject<Item> CARBONE_ELEMENT = ITEMS.register("carbone_element", ItemElement::new);
 }

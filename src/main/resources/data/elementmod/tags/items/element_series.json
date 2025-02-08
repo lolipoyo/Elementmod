@@ -1,5 +1,6 @@
 {
   "values": [
-    "elementmod:hydrogen"
+    "elementmod:hydrogen_element",
+    "elementmod:carbone_element"
   ]
 }

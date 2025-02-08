@@ -1,7 +1,8 @@
 {
   "itemGroup.element_main": "Element Mod",
 
-  "item.elementmod.hydrogen": "Hydrogen",
+  "item.elementmod.hydrogen_element": "Hydrogen",
+  "item.elementmod.carbone_element": "Carbone",
 
   "block.elementmod.magnesium_block": "Magnesium Block",
   "block.elementmod.disassemble_machine_block": "Disassemble Machine",

@@ -16,7 +16,7 @@ public class ElementTabs {
 
     public static final RegistryObject<CreativeModeTab> ELEMENT_TABS = MOD_TABS.register("element_main",
             ()-> {return CreativeModeTab.builder()
-                .icon(()->new ItemStack(ElementItems.HYDROGEN.get()))
+                .icon(()->new ItemStack(ElementItems.HYDROGEN_ELEMENT.get()))
                 .title(Component.translatable("itemGroup.element_main"))
                 .displayItems((itemDisplayParameters, output) -> {
                     for(Item item:ElementMain.items){
