@@ -3,10 +3,8 @@ package com.github.lolipoyo.elementmod.block;
 import com.github.lolipoyo.elementmod.block.entity.MachineBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -32,20 +30,14 @@ public class BlockMachineBlock extends BaseEntityBlock {
         BlockEntity be = world.getBlockEntity(pos);
         MachineBlockEntity mb = (MachineBlockEntity) be;
 
-        if (player.isSteppingCarefully()){
-            player.moveTo(pos.getX() + 0.5, pos.getY() + mb.getCount(), pos.getZ() + 0.5);
+        if (world.isClientSide) {
+            return InteractionResult.SUCCESS;
         } else {
-            mb.increment();
-            if (!world.isClientSide){
-                player.displayClientMessage(Component.literal("Count:" + mb.getCount()), true);
-                MenuProvider provider = this.getMenuProvider(state,world,pos);
-                player.openMenu(provider);
+                player.openMenu(state.getMenuProvider(world, pos));
+                return InteractionResult.CONSUME;
             }
             //音鳴らす場合
             //world.playSound(player, pos, SoundEvents.xxxxxxx, SoundSource.BLOCKS);
-        }
-
-        return InteractionResult.SUCCESS;
     }
 
     @Override

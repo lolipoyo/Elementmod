@@ -16,9 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class MachineBlockEntity extends RandomizableContainerBlockEntity {
 
-    //0を宣言
-    private int count = 0;
-
     private NonNullList<ItemStack> items = NonNullList.withSize(10, ItemStack.EMPTY);
 
     public MachineBlockEntity(BlockPos pos, BlockState state) {
@@ -28,8 +25,6 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        //数字カウント
-        tag.putInt("t-count", count);
 
         ContainerHelper.saveAllItems(tag, this.items, registries);
     }
@@ -37,19 +32,8 @@ public class MachineBlockEntity extends RandomizableContainerBlockEntity {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        //数字カウント
-        this.count = tag.getInt("t-count");
 
         ContainerHelper.loadAllItems(tag, this.items, registries);
-    }
-
-    //数字カウント
-    public void increment(){
-        this.count++;
-    }
-
-    public int getCount(){
-        return this.count;
     }
 
     //MachineBlock用
