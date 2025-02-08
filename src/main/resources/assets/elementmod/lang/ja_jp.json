@@ -1,0 +1,11 @@
+{
+  "itemGroup.element_main": "Element Mod",
+
+  "item.elementmod.hydrogen": "水素",
+
+  "block.elementmod.magnesium_block": "マグネシウムブロック",
+  "block.elementmod.disassemble_machine_block": "元素分解機",
+
+  "container.elementmod.disassemble_machine_block": "元素分解機",
+  "container.elementmod.inventory": "インベントリ"
+}

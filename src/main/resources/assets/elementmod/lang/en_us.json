@@ -1,0 +1,11 @@
+{
+  "itemGroup.element_main": "Element Mod",
+
+  "item.elementmod.hydrogen": "Hydrogen",
+
+  "block.elementmod.magnesium_block": "Magnesium Block",
+  "block.elementmod.disassemble_machine_block": "Disassemble Machine",
+
+  "container.elementmod.disassemble_machine_block": "Disassemble Machine",
+  "container.elementmod.inventory": "inventory"
+}
