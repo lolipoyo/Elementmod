@@ -23,15 +23,16 @@ public class MachineBlockMenu extends AbstractContainerMenu {
         container.startOpen(inventory.player);
 
         for (int i = 0; i < 3; i++) {
-            this.addSlot(new Slot(container, i, 24, 34));
+            this.addSlot(new Slot(container, i, 25, 35));
             for (int j = 0; j < 3; j++) {
-                this.addSlot(new Slot(container, i + j + 1, 97 + j * 18, 34));
+                this.addSlot(new Slot(container, i + j * 3, 98 + j * 18, 17 + i * 18));
+                //$$6 + $$7 * 3, 30 + $$6 * 18, 17 + $$7 * 18
             }
         }
 
         for (int k = 0; k < 3; k++) {
             for (int l = 0; l < 9; l++) {
-                this.addSlot(new Slot(inventory, l + 9 + k * 9, 8 + l * 18, 84 + k + 18));
+                this.addSlot(new Slot(inventory, l + k * 9 + 9, 8 + l * 18, 84 + k * 18));
             }
         }
 

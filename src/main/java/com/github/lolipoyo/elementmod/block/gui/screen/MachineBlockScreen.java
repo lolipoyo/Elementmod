@@ -18,7 +18,7 @@ public class MachineBlockScreen extends AbstractContainerScreen<MachineBlockMenu
         super(menu, inventory, component);
         //GUIの名前ラベル変更
         this.titleLabelX = 65;
-        this.titleLabelY = 3;
+        this.titleLabelY = 5;
         //this.inventoryLabelX = ?;
         //this.inventoryLabelY = this.imageHeight - ?;
     }
